@@ -1,0 +1,309 @@
+import numpy as np
+import cv2 as cv
+cap = cv.VideoCapture(0)
+fourcc = cv.VideoWriter_fourcc(*'XVID')
+out = cv.VideoWriter('Subscribe.mp4', fourcc, 20.0, (640, 480))
+
+while (cap.isOpened()):
+    ret, frame = cap.read()
+    if (ret == True):
+        out.write(frame)
+        cv.imshow('output',frame)
+        if(cv.waitKey(1) &  0xFF == ord('q')):
+            break
+    else:
+        break
+
+----------------------------------------------------------
+
+# importing the module
+import cv2
+
+# reading the video
+source = cv2.VideoCapture('Countdown Timer.mov')
+
+# running the loop
+while True:
+
+	# extracting the frames
+	ret, img = source.read()
+	
+	# converting to gray-scale
+	gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+	# displaying the video
+	cv2.imshow("Live", gray)
+
+	# exiting the loop
+	key = cv2.waitKey(1)
+	if key == ord("q"):
+		break
+	
+# closing the window
+cv2.destroyAllWindows()
+source.release()
+
+#------------------------------------------------------------------------------
+
+# Importing all necessary libraries
+import cv2
+import os
+  
+# Read the video from specified path
+cam = cv2.VideoCapture("C:\\Users\\Admin\\PycharmProjects\\project_1\\openCV.mp4")
+  
+try:
+      
+    # creating a folder named data
+    if not os.path.exists('data'):
+        os.makedirs('data')
+  
+# if not created then raise error
+except OSError:
+    print ('Error: Creating directory of data')
+  
+# frame
+currentframe = 0
+  
+while(True):
+      
+    # reading from frame
+    ret,frame = cam.read()
+  
+    if ret:
+        # if video is still left continue creating images
+        name = './data/frame' + str(currentframe) + '.jpg'
+        print ('Creating...' + name)
+  
+        # writing the extracted images
+        cv2.imwrite(name, frame)
+  
+        # increasing counter so that it will
+        # show how many frames are created
+        currentframe += 1
+    else:
+        break
+  
+# Release all space and windows once done
+cam.release()
+cv2.destroyAllWindows()
+
+
+
+
+# Importing all necessary libraries
+
+import numpy as np
+import cv2 as cv
+import os
+import glob, errno
+import 
+cap = cv.VideoCapture(0)
+fourcc = cv.VideoWriter_fourcc(*'XVID')
+out = cv.VideoWriter('Subscribe3.mp4', fourcc, 20.0, (640, 480))
+
+while (cap.isOpened()):
+    ret, frame = cap.read()
+    if (ret == True):
+        out.write(frame)
+        cv.imshow('output',frame)
+        if(cv.waitKey(1) &  0xFF == ord('q')):
+            break
+    else:
+        break
+
+
+'''
+cap = cv.VideoCapture(0)
+fourcc = cv.VideoWriter_fourcc(*'XVID')
+out = cv.VideoWriter('SubscribeHere3.mp4', fourcc, 20.0, (640, 480))
+
+if not cap.isOpened():
+    print("Cannot open camera")
+    exit()
+while True:
+    # Capture frame-by-frame
+    ret, frame = cap.read()
+    # if frame is read correctly ret is True
+    if not ret:
+        print("Can't receive frame (stream end?). Exiting ...")
+        break
+    # Our operations on the frame come here
+    if (ret == True):
+        #gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+        # Display the resulting frame
+        
+        cv.imshow('frame', frame)
+        
+        if cv.waitKey(1) == ord('q'):
+            break
+# When everything done, release the capture
+'''
+
+#------------------------------------------------------------------------
+# Read the video from specified path
+cam = cv.VideoCapture("C:\\Users\\vikas\\Desktop\\Fabric identification and defect detection\\Subscribe3.mp4")
+  
+try:
+      
+    # creating a folder named data
+    if not os.path.exists('data'):
+        os.makedirs('data')
+  
+# if not created then raise error
+except OSError:
+    print ('Error: Creating directory of data')
+  
+# frame
+currentframe = 0
+  
+while(True):
+      
+    # reading from frame
+    ret,frame = cam.read()
+  
+    if ret:
+        # if video is still left continue creating images
+        name = './data/frame' + str(currentframe) + '.jpg'
+        print ('Creating...' + name)
+  
+        # writing the extracted images
+        cv2.imwrite(name, frame)
+  
+        # increasing counter so that it will
+        # show how many frames are created
+        currentframe += 1
+    else:
+        break
+  
+# Release all space and windows once done
+cam.release()
+cv.destroyAllWindows()
+
+#------------------------------------------------------------------------------------
+
+import os,cv2
+path = r'C:\\Users\\vikas\\Desktop\\Fabric identification and defect detection\\data' # Source Folder
+dstpath = r'C:\\Users\\vikas\\Desktop\\Fabric identification and defect detection\\modifiedData' # Destination Folder
+
+try:
+    os.makedirs(dstpath)
+except:
+    print ("Directory already exist, images will be written in same folder")
+
+# Folder won't used
+files = os.listdir(path)
+
+for image in files:
+    img = cv2.imread(os.path.join(path,image))
+    gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+    cv2.imwrite(os.path.join(dstpath,image),gray)
+
+
+
+
+
+# Importing all necessary libraries
+
+import numpy as np
+import cv2 as cv
+import os
+import glob, errno
+
+cap = cv.VideoCapture(0)
+fourcc = cv.VideoWriter_fourcc(*'XVID')
+out = cv.VideoWriter('SubscribeHere1.mp4', fourcc, 20.0, (640, 480))
+
+if not cap.isOpened():
+    print("Cannot open camera")
+    exit()
+while True:
+    # Capture frame-by-frame
+    ret, frame = cap.read()
+    # if frame is read correctly ret is True
+    if not ret:
+        print("Can't receive frame (stream end?). Exiting ...")
+        break
+    # Our operations on the frame come here
+    if (ret == True):
+        gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+        # Display the resulting frame
+        out.write(frame)
+        cv.imshow('frame', gray)
+        #out.write(frame)
+        if cv.waitKey(1) == ord('q'):
+            break
+# When everything done, release the capture
+#cap.release()
+#cv.destroyAllWindows()
+
+
+# Read the video from specified path
+cam = cv.VideoCapture(
+    "C:\\Users\\vikas\\Desktop\\Fabric identification and defect detection\\SubscribeHere1.mp4")
+
+try:
+    # creating a folder named data
+    if not os.path.exists('data'):
+        os.makedirs('data')
+
+# if not created then raise error
+except OSError:
+    print('Error: Creating directory of data')
+
+# frame
+currentframe = 0
+
+while (True):
+
+    # reading from frame
+    ret, frame = cam.read()
+
+    if ret:
+        # if video is still left continue creating images
+        name = './data/frame' + str(currentframe) + '.jpg'
+        print('Creating...' + name)
+
+        # writing the extracted images
+        cv.imwrite(name, frame)
+
+        # increasing counter so that it will
+        # show how many frames are created
+        currentframe += 1
+    else:
+        break
+
+# Release all space and windows once done
+cam.release()
+cv.destroyAllWindows()
+
+
+
+
+
+import numpy as np
+import cv2 as cv
+cap = cv.VideoCapture(0)
+if not cap.isOpened():
+    print("Cannot open camera")
+    exit()
+while True:
+    # Capture frame-by-frame
+    ret, frame = cap.read()
+    # if frame is read correctly ret is True
+    if not ret:
+        print("Can't receive frame (stream end?). Exiting ...")
+        break
+    # Our operations on the frame come here
+    gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+    # Display the resulting frame
+    cv.imshow('frame', gray)
+    if cv.waitKey(1) == ord('q'):
+        break
+# When everything done, release the capture
+cap.release()
+cv.destroyAllWindows()
+
+
+
+
